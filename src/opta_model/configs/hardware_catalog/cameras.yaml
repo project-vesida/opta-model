@@ -1,0 +1,50 @@
+# Camera catalog: one purchasable packaging row per sensor die.
+# Sensor physics lives in hardware.py; rows here carry cost, mount, and interface.
+
+sv705c:
+  name: "SVBONY SV705C (IMX585)"
+  sensor_preset: imx585
+  mount: CS
+  back_focus_mm: 12.5
+  unit_cost_usd: 249.0
+  interface: usb_raw
+
+asi678mc:
+  name: "ZWO ASI678MC (IMX678)"
+  sensor_preset: imx678
+  mount: M42x0.75
+  back_focus_mm: 12.5
+  unit_cost_usd: 299.0
+  interface: usb_raw
+
+mars_c_ii:
+  name: "Player One Mars-C II (IMX662)"
+  sensor_preset: imx662
+  mount: M42x0.75
+  back_focus_mm: 12.5
+  unit_cost_usd: 199.0
+  interface: usb_raw
+
+rpi_hq:
+  name: "Raspberry Pi HQ Camera (IMX477)"
+  sensor_preset: imx477
+  mount: CS
+  back_focus_mm: 12.5
+  unit_cost_usd: 50.0
+  interface: mipi_csi
+
+rpi_gs:
+  name: "Raspberry Pi Global Shutter Camera (IMX296)"
+  sensor_preset: imx296
+  mount: CS
+  back_focus_mm: 12.5
+  unit_cost_usd: 50.0
+  interface: mipi_csi
+
+asi174mm:
+  name: "ZWO ASI174MM (IMX174)"
+  sensor_preset: imx174
+  mount: M42x0.75
+  back_focus_mm: 12.5
+  unit_cost_usd: 599.0
+  interface: usb_raw

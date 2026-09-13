@@ -1,0 +1,12 @@
+imx585_roi_1920x1080:
+  preset: imx585
+  resolution: [1920, 1080]
+  frame_rate: 25
+
+imx585_small_400x300:
+  preset: imx585
+  resolution: [400, 300]
+  frame_rate: 25
+
+imx585_full:
+  preset: imx585

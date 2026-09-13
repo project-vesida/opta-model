@@ -1,0 +1,29 @@
+selected_v3:
+  lens: artisans_25_f095
+  camera: sv705c
+
+selected_v3_roi: &selected_v3_roi
+  lens: artisans_25_f095
+  camera: sv705c
+  sensor_mode: imx585_roi_1920x1080
+
+validation_operational: *selected_v3_roi
+
+validation_smoke:
+  lens: artisans_25_f095
+  camera: sv705c
+  sensor_mode: imx585_small_400x300
+
+pipeline_toy:
+  lens: viltrox_85_f14
+  camera: sv705c
+  sensor_mode: imx585_small_400x300
+
+pipeline_v2:
+  lens: rokinon_35_f14
+  camera: sv705c
+  sensor_mode: imx585_small_400x300
+
+sweep_reference:
+  lens: artisans_25_f095
+  camera: sv705c

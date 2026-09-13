@@ -1,0 +1,25 @@
+# Purchasable lens catalog used by the array selector.
+
+artisans_25_f095:
+  name: "7Artisans 25mm f/0.95 (APS-C)"
+  focal_length_mm: 25.0
+  f_ratio: 0.95
+  mounts: [E, X, Z, RF, EF-M, L, MFT]
+  image_circle_mm: 28.4
+  unit_cost_usd: 239.0
+
+rokinon_35_f14:
+  name: "Rokinon/Samyang AF 35mm f/1.4 (FF)"
+  focal_length_mm: 35.0
+  f_ratio: 1.4
+  mounts: [E]
+  image_circle_mm: 43.3
+  unit_cost_usd: 350.0
+
+viltrox_85_f14:
+  name: "Viltrox AF 85mm f/1.4 (FF)"
+  focal_length_mm: 85.0
+  f_ratio: 1.4
+  mounts: [E, Z, X]
+  image_circle_mm: 43.3
+  unit_cost_usd: 320.0

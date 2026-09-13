@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opta-model"
+version = "0.1.0"
+description = "Engineering model for the Optical Transit Array (OpTA): radiometry, SNR, error budget, hardware catalog and array optimizer"
+license = "Apache-2.0"
+authors = [{ name = "Project Vesida contributors" }]
+keywords = ["space-situational-awareness", "satellite-tracking", "optical", "radiometry"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Astronomy",
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.0",
+  "optuna>=4.0",
+  "pandas>=2.2",
+  "platformdirs>=4.0",
+  "plotly>=5.18",
+  "pyyaml>=6.0",
+  "skyfield>=1.49",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pylint>=3.3",
+  "pyright>=1.1",
+  "ruff>=0.6",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+opta_model = ["configs/*.yaml", "configs/hardware_catalog/*.yaml"]
+
+[project.urls]
+Homepage = "https://github.com/project-vesida/opta-model"
+Organisation = "https://github.com/project-vesida"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+  "slow: tests >5 s (deselect with '-m \"not slow\"'); includes optimizer convergence",
+  "integration: tests hitting CelesTrak or other network (deselect with '-m \"not integration\"')",
+]
+
+[tool.pylint.main]
+source-roots = ["src"]

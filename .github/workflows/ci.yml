@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -U pip && python -m pip install -e '.[dev]'
+      - run: ruff check src tests studies
+      - run: pyright
+      - name: Fast test suite (offline)
+        run: python -m pytest tests -q -m "not slow and not integration" -p no:cacheprovider
+      - name: Wheel carries its configs
+        run: |
+          python -m pip install build && python -m build --wheel -o dist
+          python -m venv /tmp/w && /tmp/w/bin/pip install -q dist/*.whl
+          /tmp/w/bin/python -c "from opta_model.hardware_catalog import build_node_from_profile; print(build_node_from_profile('selected_v3_roi').pixel_scale_arcsec)"
